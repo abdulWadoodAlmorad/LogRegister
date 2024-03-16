@@ -1,82 +1,65 @@
 package logPackage;
 
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ParseResult;
+import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.Node;
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.body.VariableDeclarator;
+import com.github.javaparser.ast.expr.MethodCallExpr;
+import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class LogReader {
 
     private static final Logger logger = LogManager.getLogger(LogReader.class);
 
     public static void main(String[] args) {
-        String filePath = "src/main/resources/inputLogDataset.txt";
+        String filePath = "src/main/resources/ghidra/Ghidra/Features/Base/src/main/java/ghidra/GhidraRun.java";
+        File file = new File(filePath);
 
-        List<String> loggerNames = new ArrayList<>();
+        try (FileInputStream fis = new FileInputStream(file)) {
+            ParseResult<CompilationUnit> parseResult = new JavaParser().parse(fis);
 
-        try (RandomAccessFile file = new RandomAccessFile(filePath, "r")) {
-            String line;
-            while ((line = file.readLine()) != null) {
-                // Search for logger declarations in each line
-                // Suche nach Logger-Deklarationen in jeder Zeile
-                Matcher matcher = Pattern.compile("\\b(Logger\\s+(\\w+)\\s*=\\s*LogManager\\.getLogger\\(.*?\\);)").matcher(line);
-                while (matcher.find()) {
-                    String loggerDeclaration = matcher.group(1);
-                    String loggerName = matcher.group(2);
-
-                    // Log found logger declarations
-                    // Protokollieren Sie gefundene Logger-Deklarationen
-                    logger.info("Found Logger: {}", loggerDeclaration);
-                    loggerNames.add(loggerName);
+            if (parseResult.isSuccessful()) {
+                CompilationUnit cu = parseResult.getResult().orElse(null);
+                if (cu != null) {
+                    cu.accept(new LogVisitor(), null);
                 }
+            } else {
+                logger.error("Failed to parse the file: " + filePath);
             }
-
-            for (String loggerName : loggerNames) {
-                findUsageLines(loggerName, file);
-            }
-
+        } catch (FileNotFoundException e) {
+            logger.error("File not found: " + filePath);
         } catch (IOException e) {
-            // Log error if file reading fails
-            // Protokollieren Sie einen Fehler, wenn das Lesen der Datei fehlschlägt
-            logger.error("Error reading log file", e);
+            logger.error("Error reading file: " + filePath, e);
         }
     }
 
-    private static void findUsageLines(String className, RandomAccessFile file) throws IOException {
-        // Reset file pointer to the beginning of the file
-        // Setzen Sie den Dateizeiger auf den Anfang der Datei zurück
-        file.seek(0);
+    private static class LogVisitor extends VoidVisitorAdapter<Void> {
 
-        String line;
-        int lineNumber = 1;
-        while ((line = file.readLine()) != null) {
-            // Check if the line contains the logger name and a log method call
-            // Überprüfen Sie, ob die Zeile den Namen des Loggers und einen Aufruf der Protokollmethode enthält
-            if (line.contains(className) && containsLogMethod(line)) {
-                // Log the usage of the logger in the line
-                // Protokollieren Sie die Verwendung des Loggers in der Zeile
-                logger.info("Logger {} used in line {}: {}", className, lineNumber, line);
-            }
-            lineNumber++;
+        @Override
+        public void visit(MethodDeclaration md, Void arg) {
+            logger.info("Method Declaration: {}", md.getDeclarationAsString(false, false, false));
+            super.visit(md, arg);
         }
-    }
 
-    private static boolean containsLogMethod(String line) {
-        // Define log methods to search for
-        // Definieren Sie Protokollmethoden, nach denen gesucht werden soll
-        String[] logMethods = {"debug", "info", "notice", "warning", "error", "critical", "alert", "emergency"};
-        for (String method : logMethods) {
-            // Check if the line contains any of the log methods
-            // Überprüfen Sie, ob die Zeile eine der Protokollmethoden enthält
-            if (line.contains("." + method + "(")) {
-                return true;
-            }
+        @Override
+        public void visit(VariableDeclarator vd, Void arg) {
+            logger.info("Variable Declaration: {}", vd.getNameAsString());
+            super.visit(vd, arg);
         }
-        return false;
+
+        @Override
+        public void visit(MethodCallExpr mce, Void arg) {
+            logger.info("Method Call: {}", mce);
+            super.visit(mce, arg);
+        }
     }
 }
