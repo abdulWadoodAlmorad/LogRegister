@@ -1,32 +1,99 @@
-06:02:2024 - 19:48:27.952 INFO logPackage.LogReader [main] - Found Logger: Logger loggerOne = LogManager.getLogger(LoggerExample.class);
-06:02:2024 - 19:48:27.956 INFO logPackage.LogReader [main] - Found Logger: Logger loggerTwo = LogManager.getLogger(LoggerExample.class);
-06:02:2024 - 19:48:27.956 INFO logPackage.LogReader [main] - Found Logger: Logger loggerThree = LogManager.getLogger(LoggerExample.class);
-06:02:2024 - 19:48:27.957 INFO logPackage.LogReader [main] - Found Logger: Logger customLogger = LogManager.getLogger("CustomLogger");
-06:02:2024 - 19:48:27.961 INFO logPackage.LogReader [main] - Logger loggerOne used in line 19:         loggerOne.info("Info message from loggerOne");
-06:02:2024 - 19:48:27.964 INFO logPackage.LogReader [main] - Logger loggerTwo used in line 20:         loggerTwo.error("Error message from loggerTwo");
-06:02:2024 - 19:48:27.967 INFO logPackage.LogReader [main] - Logger loggerThree used in line 21:         loggerThree.debug("Debug message from loggerThree");
-06:02:2024 - 19:48:27.969 INFO logPackage.LogReader [main] - Logger customLogger used in line 15:         customLogger.debug("This is customLogger");
-06:02:2024 - 19:48:28.273 INFO logPackage.LogTester [main] - Found Logger: Logger loggerOne = LogManager.getLogger(LoggerExample.class);
-06:02:2024 - 19:48:28.282 INFO logPackage.LogTester [main] - Found Logger: Logger loggerTwo = LogManager.getLogger(LoggerExample.class);
-06:02:2024 - 19:48:28.282 INFO logPackage.LogTester [main] - Found Logger: Logger loggerThree = LogManager.getLogger(LoggerExample.class);
-06:02:2024 - 19:48:28.282 INFO logPackage.LogTester [main] - Found Logger: Logger customLogger = LogManager.getLogger("CustomLogger");
-06:02:2024 - 19:48:28.282 INFO logPackage.LogTester [main] - Logger loggerOne used in line 19:         loggerOne.info("Info message from loggerOne");
-06:02:2024 - 19:48:28.283 INFO logPackage.LogTester [main] - Logger loggerTwo used in line 20:         loggerTwo.error("Error message from loggerTwo");
-06:02:2024 - 19:48:28.283 INFO logPackage.LogTester [main] - Logger loggerThree used in line 21:         loggerThree.debug("Debug message from loggerThree");
-06:02:2024 - 19:48:28.283 INFO logPackage.LogTester [main] - Logger customLogger used in line 15:         customLogger.debug("This is customLogger");
-10:02:2024 - 15:15:07.087 INFO logPackage.LogReader [main] - Found Logger: Logger loggerOne = LogManager.getLogger(LoggerExample.class);
-10:02:2024 - 15:15:07.095 INFO logPackage.LogReader [main] - Found Logger: Logger loggerTwo = LogManager.getLogger(LoggerExample.class);
-10:02:2024 - 15:15:07.095 INFO logPackage.LogReader [main] - Found Logger: Logger loggerThree = LogManager.getLogger(LoggerExample.class);
-10:02:2024 - 15:15:07.096 INFO logPackage.LogReader [main] - Found Logger: Logger customLogger = LogManager.getLogger("CustomLogger");
-10:02:2024 - 15:15:07.099 INFO logPackage.LogReader [main] - Logger loggerOne used in line 19:         loggerOne.info("Info message from loggerOne");
-10:02:2024 - 15:15:07.102 INFO logPackage.LogReader [main] - Logger loggerTwo used in line 20:         loggerTwo.error("Error message from loggerTwo");
-10:02:2024 - 15:15:07.105 INFO logPackage.LogReader [main] - Logger loggerThree used in line 21:         loggerThree.debug("Debug message from loggerThree");
-10:02:2024 - 15:15:07.106 INFO logPackage.LogReader [main] - Logger customLogger used in line 15:         customLogger.debug("This is customLogger");
-10:02:2024 - 15:15:07.361 INFO logPackage.LogTester [main] - Found Logger: Logger loggerOne = LogManager.getLogger(LoggerExample.class);
-10:02:2024 - 15:15:07.364 INFO logPackage.LogTester [main] - Found Logger: Logger loggerTwo = LogManager.getLogger(LoggerExample.class);
-10:02:2024 - 15:15:07.364 INFO logPackage.LogTester [main] - Found Logger: Logger loggerThree = LogManager.getLogger(LoggerExample.class);
-10:02:2024 - 15:15:07.364 INFO logPackage.LogTester [main] - Found Logger: Logger customLogger = LogManager.getLogger("CustomLogger");
-10:02:2024 - 15:15:07.364 INFO logPackage.LogTester [main] - Logger loggerOne used in line 19:         loggerOne.info("Info message from loggerOne");
-10:02:2024 - 15:15:07.364 INFO logPackage.LogTester [main] - Logger loggerTwo used in line 20:         loggerTwo.error("Error message from loggerTwo");
-10:02:2024 - 15:15:07.365 INFO logPackage.LogTester [main] - Logger loggerThree used in line 21:         loggerThree.debug("Debug message from loggerThree");
-10:02:2024 - 15:15:07.365 INFO logPackage.LogTester [main] - Logger customLogger used in line 15:         customLogger.debug("This is customLogger");
+12:03:2024 - 19:12:39.454 INFO logPackage.LogReader [main] - Variable Declaration: log
+12:03:2024 - 19:12:39.463 INFO logPackage.LogReader [main] - Method Declaration: void launch(GhidraApplicationLayout, String[])
+12:03:2024 - 19:12:39.463 INFO logPackage.LogReader [main] - Variable Declaration: mainTask
+12:03:2024 - 19:12:39.463 INFO logPackage.LogReader [main] - Variable Declaration: configuration
+12:03:2024 - 19:12:39.464 INFO logPackage.LogReader [main] - Method Call: Application.initializeApplication(layout, configuration)
+12:03:2024 - 19:12:39.464 INFO logPackage.LogReader [main] - Method Call: LogManager.getLogger(GhidraRun.class)
+12:03:2024 - 19:12:39.464 INFO logPackage.LogReader [main] - Method Call: log.info("User " + SystemUtilities.getUserName() + " started Ghidra.")
+12:03:2024 - 19:12:39.464 INFO logPackage.LogReader [main] - Method Call: SystemUtilities.getUserName()
+12:03:2024 - 19:12:39.465 INFO logPackage.LogReader [main] - Method Call: log.info("User settings directory: " + Application.getUserSettingsDirectory())
+12:03:2024 - 19:12:39.466 INFO logPackage.LogReader [main] - Method Call: Application.getUserSettingsDirectory()
+12:03:2024 - 19:12:39.466 INFO logPackage.LogReader [main] - Method Call: log.info("User temp directory: " + Application.getUserTempDirectory())
+12:03:2024 - 19:12:39.466 INFO logPackage.LogReader [main] - Method Call: Application.getUserTempDirectory()
+12:03:2024 - 19:12:39.466 INFO logPackage.LogReader [main] - Method Call: log.info("User cache directory: " + Application.getUserCacheDirectory())
+12:03:2024 - 19:12:39.466 INFO logPackage.LogReader [main] - Method Call: Application.getUserCacheDirectory()
+12:03:2024 - 19:12:39.466 INFO logPackage.LogReader [main] - Method Call: initializeTooltips()
+12:03:2024 - 19:12:39.466 INFO logPackage.LogReader [main] - Method Call: updateSplashScreenStatusMessage("Populating Ghidra help...")
+12:03:2024 - 19:12:39.466 INFO logPackage.LogReader [main] - Method Call: GhidraHelpService.install()
+12:03:2024 - 19:12:39.466 INFO logPackage.LogReader [main] - Method Call: ExtensionUtils.initializeExtensions()
+12:03:2024 - 19:12:39.466 INFO logPackage.LogReader [main] - Method Call: updateSplashScreenStatusMessage("Checking for previous project...")
+12:03:2024 - 19:12:39.472 INFO logPackage.LogReader [main] - Method Call: SystemUtilities.runSwingLater(() -> {
+    String projectPath = processArguments(args);
+    openProject(projectPath);
+})
+12:03:2024 - 19:12:39.472 INFO logPackage.LogReader [main] - Variable Declaration: projectPath
+12:03:2024 - 19:12:39.472 INFO logPackage.LogReader [main] - Method Call: processArguments(args)
+12:03:2024 - 19:12:39.472 INFO logPackage.LogReader [main] - Method Call: openProject(projectPath)
+12:03:2024 - 19:12:39.472 INFO logPackage.LogReader [main] - Variable Declaration: mainThread
+12:03:2024 - 19:12:39.472 INFO logPackage.LogReader [main] - Method Call: mainThread.start()
+12:03:2024 - 19:12:39.473 INFO logPackage.LogReader [main] - Method Declaration: String processArguments(String[])
+12:03:2024 - 19:12:39.473 INFO logPackage.LogReader [main] - Method Call: args[0].startsWith("-D")
+12:03:2024 - 19:12:39.473 INFO logPackage.LogReader [main] - Method Call: args[0].indexOf(" -D")
+12:03:2024 - 19:12:39.473 INFO logPackage.LogReader [main] - Method Call: args[0].split(" ")
+12:03:2024 - 19:12:39.473 INFO logPackage.LogReader [main] - Variable Declaration: projectPath
+12:03:2024 - 19:12:39.473 INFO logPackage.LogReader [main] - Method Call: arg.startsWith("-D")
+12:03:2024 - 19:12:39.473 INFO logPackage.LogReader [main] - Variable Declaration: split
+12:03:2024 - 19:12:39.474 INFO logPackage.LogReader [main] - Method Call: arg.substring(2).split("=")
+12:03:2024 - 19:12:39.474 INFO logPackage.LogReader [main] - Method Call: arg.substring(2)
+12:03:2024 - 19:12:39.474 INFO logPackage.LogReader [main] - Method Call: System.setProperty(split[0], split[1])
+12:03:2024 - 19:12:39.474 INFO logPackage.LogReader [main] - Variable Declaration: arg
+12:03:2024 - 19:12:39.474 INFO logPackage.LogReader [main] - Method Declaration: void updateSplashScreenStatusMessage(String)
+12:03:2024 - 19:12:39.474 INFO logPackage.LogReader [main] - Method Call: SystemUtilities.runSwingNow(() -> SplashScreen.updateSplashScreenStatus(message))
+12:03:2024 - 19:12:39.474 INFO logPackage.LogReader [main] - Method Call: SplashScreen.updateSplashScreenStatus(message)
+12:03:2024 - 19:12:39.475 INFO logPackage.LogReader [main] - Method Declaration: void initializeTooltips()
+12:03:2024 - 19:12:39.475 INFO logPackage.LogReader [main] - Variable Declaration: currentDelay
+12:03:2024 - 19:12:39.475 INFO logPackage.LogReader [main] - Method Call: ToolTipManager.sharedInstance().getDismissDelay()
+12:03:2024 - 19:12:39.475 INFO logPackage.LogReader [main] - Method Call: ToolTipManager.sharedInstance()
+12:03:2024 - 19:12:39.475 INFO logPackage.LogReader [main] - Method Call: ToolTipManager.sharedInstance().setDismissDelay(currentDelay * 2)
+12:03:2024 - 19:12:39.475 INFO logPackage.LogReader [main] - Method Call: ToolTipManager.sharedInstance()
+12:03:2024 - 19:12:39.475 INFO logPackage.LogReader [main] - Method Declaration: void openProject(String)
+12:03:2024 - 19:12:39.475 INFO logPackage.LogReader [main] - Method Call: updateSplashScreenStatusMessage("Creating project manager...")
+12:03:2024 - 19:12:39.475 INFO logPackage.LogReader [main] - Variable Declaration: pm
+12:03:2024 - 19:12:39.476 INFO logPackage.LogReader [main] - Method Call: updateSplashScreenStatusMessage("Creating front end tool...")
+12:03:2024 - 19:12:39.476 INFO logPackage.LogReader [main] - Method Call: Application.isTestBuild()
+12:03:2024 - 19:12:39.476 INFO logPackage.LogReader [main] - Method Call: Msg.showWarn(GhidraRun.class, null, "Unsupported Ghidra Distribution", "WARNING! Please be aware that this is an unsupported and uncertified\n" + "build of Ghidra!  This software may be unstable and data created\n" + "may be incompatible with future releases.")
+12:03:2024 - 19:12:39.476 INFO logPackage.LogReader [main] - Variable Declaration: tool
+12:03:2024 - 19:12:39.476 INFO logPackage.LogReader [main] - Variable Declaration: reopen
+12:03:2024 - 19:12:39.476 INFO logPackage.LogReader [main] - Variable Declaration: projectLocator
+12:03:2024 - 19:12:39.476 INFO logPackage.LogReader [main] - Variable Declaration: projectFile
+12:03:2024 - 19:12:39.476 INFO logPackage.LogReader [main] - Variable Declaration: name
+12:03:2024 - 19:12:39.476 INFO logPackage.LogReader [main] - Method Call: projectFile.getName()
+12:03:2024 - 19:12:39.476 INFO logPackage.LogReader [main] - Method Call: name.endsWith(ProjectLocator.getProjectExtension())
+12:03:2024 - 19:12:39.477 INFO logPackage.LogReader [main] - Method Call: ProjectLocator.getProjectExtension()
+12:03:2024 - 19:12:39.477 INFO logPackage.LogReader [main] - Method Call: projectFile.getParent()
+12:03:2024 - 19:12:39.477 INFO logPackage.LogReader [main] - Method Call: Msg.showInfo(GhidraRun.class, null, "Invalid Project", "The specified file is not a project file: " + projectPath)
+12:03:2024 - 19:12:39.477 INFO logPackage.LogReader [main] - Method Call: tool.shouldRestorePreviousProject()
+12:03:2024 - 19:12:39.477 INFO logPackage.LogReader [main] - Method Call: updateSplashScreenStatusMessage("Checking for last opened project...")
+12:03:2024 - 19:12:39.477 INFO logPackage.LogReader [main] - Method Call: pm.getLastOpenedProject()
+12:03:2024 - 19:12:39.477 INFO logPackage.LogReader [main] - Method Call: tool.setVisible(true)
+12:03:2024 - 19:12:39.478 INFO logPackage.LogReader [main] - Method Call: openProject(tool, projectLocator, reopen)
+12:03:2024 - 19:12:39.478 INFO logPackage.LogReader [main] - Method Declaration: void openProject(FrontEndTool, ProjectLocator, boolean)
+12:03:2024 - 19:12:39.478 INFO logPackage.LogReader [main] - Method Call: SplashScreen.updateSplashScreenStatus((reopen ? "Reopening" : "Opening") + " project: " + projectLocator.getName())
+12:03:2024 - 19:12:39.478 INFO logPackage.LogReader [main] - Method Call: projectLocator.getName()
+12:03:2024 - 19:12:39.478 INFO logPackage.LogReader [main] - Variable Declaration: r
+12:03:2024 - 19:12:39.478 INFO logPackage.LogReader [main] - Method Call: doOpenProject(tool, projectLocator, reopen)
+12:03:2024 - 19:12:39.478 INFO logPackage.LogReader [main] - Method Call: TaskLauncher.launchModal("Opening Project", () -> Swing.runNow(r))
+12:03:2024 - 19:12:39.479 INFO logPackage.LogReader [main] - Method Call: Swing.runNow(r)
+12:03:2024 - 19:12:39.479 INFO logPackage.LogReader [main] - Method Declaration: void doOpenProject(FrontEndTool, ProjectLocator, boolean)
+12:03:2024 - 19:12:39.479 INFO logPackage.LogReader [main] - Method Call: Msg.showError(GhidraRun.class, null, "Project Open Failed", "Failed to " + (reopen ? "reopen last" : "open") + " project: " + projectLocator.toString() + "\n\n" + t.getClass().getSimpleName() + ": " + t.getMessage(), t)
+12:03:2024 - 19:12:39.479 INFO logPackage.LogReader [main] - Method Call: projectLocator.toString()
+12:03:2024 - 19:12:39.479 INFO logPackage.LogReader [main] - Method Call: t.getClass().getSimpleName()
+12:03:2024 - 19:12:39.479 INFO logPackage.LogReader [main] - Method Call: t.getClass()
+12:03:2024 - 19:12:39.479 INFO logPackage.LogReader [main] - Method Call: t.getMessage()
+12:03:2024 - 19:12:39.480 INFO logPackage.LogReader [main] - Method Call: Msg.showInfo(GhidraRun.class, null, "Project Open Failed", "Failed to " + (reopen ? "reopen last" : "open") + " project: " + projectLocator.toString() + "\n\n" + t.getClass().getSimpleName() + ": " + t.getMessage())
+12:03:2024 - 19:12:39.480 INFO logPackage.LogReader [main] - Method Call: projectLocator.toString()
+12:03:2024 - 19:12:39.480 INFO logPackage.LogReader [main] - Method Call: t.getClass().getSimpleName()
+12:03:2024 - 19:12:39.480 INFO logPackage.LogReader [main] - Method Call: t.getClass()
+12:03:2024 - 19:12:39.480 INFO logPackage.LogReader [main] - Method Call: t.getMessage()
+12:03:2024 - 19:12:39.480 INFO logPackage.LogReader [main] - Method Call: Msg.showInfo(GhidraRun.class, null, "Project is Locked", "Can't open project: " + projectLocator.toString() + "\nProject is already locked")
+12:03:2024 - 19:12:39.480 INFO logPackage.LogReader [main] - Method Call: projectLocator.toString()
+12:03:2024 - 19:12:39.481 INFO logPackage.LogReader [main] - Method Call: tool.setActiveProject(null)
+12:03:2024 - 19:12:39.481 INFO logPackage.LogReader [main] - Variable Declaration: pm
+12:03:2024 - 19:12:39.481 INFO logPackage.LogReader [main] - Method Call: tool.getProjectManager()
+12:03:2024 - 19:12:39.481 INFO logPackage.LogReader [main] - Variable Declaration: activeProject
+12:03:2024 - 19:12:39.481 INFO logPackage.LogReader [main] - Method Call: pm.openProject(projectLocator, true, false)
+12:03:2024 - 19:12:39.481 INFO logPackage.LogReader [main] - Method Call: tool.setActiveProject(activeProject)
+12:03:2024 - 19:12:39.482 INFO logPackage.LogReader [main] - Variable Declaration: repository
+12:03:2024 - 19:12:39.482 INFO logPackage.LogReader [main] - Method Call: activeProject.getRepository()
+12:03:2024 - 19:12:39.482 INFO logPackage.LogReader [main] - Method Call: repository.isConnected()
+12:03:2024 - 19:12:39.482 INFO logPackage.LogReader [main] - Method Call: Msg.showInfo(GhidraRun.class, null, "Working Off-Line ", "Even though you are not connected to the Ghidra Server,\n" + "you can still work off-line on checked out files or private files.\n" + "You can also try reconnecting to the server by selecting the connect\n" + "button on the Ghidra Project Window.\n \n" + "See the Ghidra Help topic 'Project Repository' for troubleshooting\n" + "a failed connection.")
