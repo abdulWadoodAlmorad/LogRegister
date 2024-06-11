@@ -75,7 +75,10 @@ public class LogReader {
 
         @Override
         public void visit(VariableDeclarator vd, Void arg) {
-            logger.debug("Variable Declaration: {}", vd.getNameAsString());
+            if (vd.getType().asString().contains("Logger") || 
+                (vd.getInitializer().isPresent() && vd.getInitializer().get().toString().contains("LogManager"))) {
+                logger.debug("Logger Variable Declaration: {}", vd.getNameAsString());
+            }
             super.visit(vd, arg);
         }
 
@@ -107,7 +110,6 @@ public class LogReader {
             super.visit(mce, arg);
         }
 
-        // You can add more visit methods here for deeper analysis
-        // For example, to check nested method calls, nested loops, etc.
+     
     }
 }
