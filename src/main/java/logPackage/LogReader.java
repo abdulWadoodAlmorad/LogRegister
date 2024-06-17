@@ -7,7 +7,8 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.MethodCallExpr;
-import com.github.javaparser.ast.visitor.VoidVisitor;
+import com.github.javaparser.ast.expr.LambdaExpr;
+import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.github.javaparser.symbolsolver.JavaSymbolSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver;
@@ -18,6 +19,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 public class LogReader {
 
@@ -106,10 +109,41 @@ public class LogReader {
 
         @Override
         public void visit(MethodCallExpr mce, Void arg) {
+            // الحفاظ على الوظيفة القديمة
             logger.trace("Method Call inside Method: {}", mce);
+            
+            // حساب عدد الأنواع للـ arguments
+            Set<String> argumentTypes = new HashSet<>();
+            mce.getArguments().forEach(argExpr -> {
+                try {
+                    String argType = resolveArgumentType(argExpr);
+                    argumentTypes.add(argType);
+                } catch (Exception e) {
+                    logger.error("Error resolving argument type for: {}", argExpr, e);
+                    argumentTypes.add("Unresolved");
+                }
+            });
+
+            logger.trace("Unique argument types: {}", argumentTypes);
+            logger.trace("Number of unique argument types: {}", argumentTypes.size());
+
             super.visit(mce, arg);
         }
 
-     
+        private String resolveArgumentType(Expression argExpr) {
+            try {
+                if (argExpr.isLambdaExpr()) {
+                    return "Lambda";
+                } else if (argExpr.isMethodCallExpr()) {
+                    return "MethodCall";
+                } else {
+                    return argExpr.calculateResolvedType().describe();
+                }
+            } catch (Exception e) {
+                logger.error("Error resolving argument type for: {}", argExpr, e);
+                return "Unresolved";
+            }
+        }
     }
+
 }
