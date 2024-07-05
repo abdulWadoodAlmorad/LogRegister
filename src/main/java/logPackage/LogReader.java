@@ -30,13 +30,13 @@ public class LogReader {
         String projectPath = "src/main/resources/ghidra/Ghidra/Features/Base/src/main/java/ghidra";
         File projectDir = new File(projectPath);
 
-        // تهيئة JavaParser لاستخدام JavaSymbolSolver
+     // Initialize JavaParser to use JavaSymbolSolver
         ParserConfiguration parserConfiguration = new ParserConfiguration();
         parserConfiguration.setSymbolResolver(new JavaSymbolSolver(new ReflectionTypeSolver()));
 
         JavaParser javaParser = new JavaParser(parserConfiguration);
 
-        // تحليل جميع ملفات المشروع
+     // Analyze all project files
         try {
             for (File file : projectDir.listFiles()) {
                 if (file.isFile() && file.getName().endsWith(".java")) {
@@ -109,10 +109,10 @@ public class LogReader {
 
         @Override
         public void visit(MethodCallExpr mce, Void arg) {
-            // الحفاظ على الوظيفة القديمة
+        	//Keep the old function
             logger.trace("Method Call inside Method: {}", mce);
             
-            // حساب عدد الأنواع للـ arguments
+         // Calculate the number of types for arguments
             Set<String> argumentTypes = new HashSet<>();
             mce.getArguments().forEach(argExpr -> {
                 try {
