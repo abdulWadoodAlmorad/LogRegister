@@ -14,11 +14,9 @@ public class LogTester {
 
     public static void main(String[] args) {
         // Set the value of logContent
-        // Legen Sie den Wert von logContent fest
         String logContent = "    private static final Logger logger1 = LogManager.getLogger(LoggerExample.class);\r\n";
 
         // Call the processLogContent function
-        // Rufen Sie die Funktion processLogContent auf
         processLogContent(logContent);
     }
 
@@ -51,7 +49,7 @@ public class LogTester {
         }
     }
 
-    private static boolean containsLogMethod(String line) {
+    public static boolean containsLogMethod(String line) {
         String[] logMethods = {"debug", "info", "notice", "warning", "error", "critical", "alert", "emergency"};
         for (String method : logMethods) {
             if (line.contains("." + method + "(")) {
