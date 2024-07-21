@@ -49,7 +49,13 @@
 1. **MainApplication.java ausführen:**
    - Nachdem das Projekt mit Maven erstellt wurde, kannst du die Hauptanwendung von MainApplication.java ausführen.
 
-2. **Erwartete Ergebnisse:**
+2. **Ergebnisse:**
+- Die Ergebnisse befinden sich in Logs File und enthält die Ergebnisse von folgenden Repos :
+https://github.com/NationalSecurityAgency/ghidra.git
+https://github.com/Javlo/javlo.git 
+https://github.com/mimecast/mta-sts.git
+
+3. **Erwartete Ergebnisse:**
    - Beim Ausführen der Anwendung solltest du die folgenden Informationen in der Kommandozeile oder in der Benutzeroberfläche der Anwendung (falls vorhanden) sehen:
      - **Anzahl der gelösten Typen:** Eine Anzahl der erfolgreich gelösten Typen.
      - **Anzahl der ungelösten Typen:** Eine Anzahl der Typen, die nicht gelöst werden konnten.
