@@ -28,6 +28,10 @@ public class LogReader {
 
     public static void main(String[] args) {
         String projectPath = "src/main/resources/ghidra/Ghidra/Features/Base/src/main/java/ghidra";
+       //  String projectPath = "src/main/resources/javlo/src/main/java/org/javlo/service";
+        // String projectPath = "src/main/resources/mta-sts/src/main/java/com/mimecast/mtasts";
+
+
         File projectDir = new File(projectPath);
 
      // Initialize JavaParser to use JavaSymbolSolver
